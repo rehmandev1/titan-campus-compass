@@ -31,7 +31,7 @@ function CenterPanel() {
     <div className="relative overflow-hidden rounded-[2rem] bg-blueprint px-8 py-12 text-center shadow-lift sm:px-12">
       <div className="pointer-events-none absolute inset-3 rounded-[1.5rem] border border-dashed border-gold-light/30" aria-hidden />
       <div className="pointer-events-none absolute -bottom-16 -right-16 size-48 rounded-full bg-gold/25 blur-3xl" aria-hidden />
-      <Eyebrow className="relative bg-none bg-gradient-gold text-navy-deep">Why Choose TITAN?</Eyebrow>
+      <Eyebrow tone="gold" className="relative">Why Choose TITAN?</Eyebrow>
       <h2 className="relative mt-5 text-3xl font-extrabold leading-tight text-on-navy sm:text-4xl">
         Skills You Can Use. <span className="text-gradient-gold">Careers You Can Build.</span>
       </h2>

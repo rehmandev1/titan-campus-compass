@@ -1,15 +1,16 @@
 import type { ReactNode } from "react";
 import { cn } from "@/lib/utils";
 
-export function Eyebrow({ children, className }: { children: ReactNode; className?: string }) {
+export function Eyebrow({ children, className, tone = "navy" }: { children: ReactNode; className?: string; tone?: "navy" | "gold" }) {
   return (
     <span
       className={cn(
-        "inline-flex items-center gap-2 rounded-full bg-gradient-navy px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.16em] text-gold-light shadow-soft",
+        "inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.16em] shadow-soft",
+        tone === "navy" ? "bg-gradient-navy text-gold-light" : "bg-gradient-gold text-navy-deep",
         className,
       )}
     >
-      <span className="size-1.5 rounded-full bg-gold" aria-hidden />
+      <span className={cn("size-1.5 rounded-full", tone === "navy" ? "bg-gold" : "bg-navy")} aria-hidden />
       {children}
     </span>
   );
