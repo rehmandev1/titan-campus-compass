@@ -10,33 +10,167 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AboutRouteImport } from './routes/about'
+import { Route as AlumniRouteImport } from './routes/alumni'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as EnrollRouteImport } from './routes/enroll'
+import { Route as ArticlesIndexRouteImport } from './routes/articles.index'
+import { Route as ArticlesSlugRouteImport } from './routes/articles.$slug'
+import { Route as CampusesIndexRouteImport } from './routes/campuses.index'
+import { Route as CampusesSlugRouteImport } from './routes/campuses.$slug'
+import { Route as CoursesIndexRouteImport } from './routes/courses.index'
+import { Route as CoursesSlugRouteImport } from './routes/courses.$slug'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AlumniRoute = AlumniRouteImport.update({
+  id: '/alumni',
+  path: '/alumni',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EnrollRoute = EnrollRouteImport.update({
+  id: '/enroll',
+  path: '/enroll',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ArticlesIndexRoute = ArticlesIndexRouteImport.update({
+  id: '/articles/',
+  path: '/articles/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ArticlesSlugRoute = ArticlesSlugRouteImport.update({
+  id: '/articles/$slug',
+  path: '/articles/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CampusesIndexRoute = CampusesIndexRouteImport.update({
+  id: '/campuses/',
+  path: '/campuses/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CampusesSlugRoute = CampusesSlugRouteImport.update({
+  id: '/campuses/$slug',
+  path: '/campuses/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CoursesIndexRoute = CoursesIndexRouteImport.update({
+  id: '/courses/',
+  path: '/courses/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CoursesSlugRoute = CoursesSlugRouteImport.update({
+  id: '/courses/$slug',
+  path: '/courses/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/alumni': typeof AlumniRoute
+  '/contact': typeof ContactRoute
+  '/enroll': typeof EnrollRoute
+  '/articles/$slug': typeof ArticlesSlugRoute
+  '/campuses/$slug': typeof CampusesSlugRoute
+  '/courses/$slug': typeof CoursesSlugRoute
+  '/articles/': typeof ArticlesIndexRoute
+  '/campuses/': typeof CampusesIndexRoute
+  '/courses/': typeof CoursesIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/alumni': typeof AlumniRoute
+  '/contact': typeof ContactRoute
+  '/enroll': typeof EnrollRoute
+  '/articles/$slug': typeof ArticlesSlugRoute
+  '/campuses/$slug': typeof CampusesSlugRoute
+  '/courses/$slug': typeof CoursesSlugRoute
+  '/articles': typeof ArticlesIndexRoute
+  '/campuses': typeof CampusesIndexRoute
+  '/courses': typeof CoursesIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/alumni': typeof AlumniRoute
+  '/contact': typeof ContactRoute
+  '/enroll': typeof EnrollRoute
+  '/articles/$slug': typeof ArticlesSlugRoute
+  '/campuses/$slug': typeof CampusesSlugRoute
+  '/courses/$slug': typeof CoursesSlugRoute
+  '/articles/': typeof ArticlesIndexRoute
+  '/campuses/': typeof CampusesIndexRoute
+  '/courses/': typeof CoursesIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/alumni'
+    | '/contact'
+    | '/enroll'
+    | '/articles/$slug'
+    | '/campuses/$slug'
+    | '/courses/$slug'
+    | '/articles/'
+    | '/campuses/'
+    | '/courses/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/about'
+    | '/alumni'
+    | '/contact'
+    | '/enroll'
+    | '/articles/$slug'
+    | '/campuses/$slug'
+    | '/courses/$slug'
+    | '/articles'
+    | '/campuses'
+    | '/courses'
+  id:
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/alumni'
+    | '/contact'
+    | '/enroll'
+    | '/articles/$slug'
+    | '/campuses/$slug'
+    | '/courses/$slug'
+    | '/articles/'
+    | '/campuses/'
+    | '/courses/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutRoute: typeof AboutRoute
+  AlumniRoute: typeof AlumniRoute
+  ContactRoute: typeof ContactRoute
+  EnrollRoute: typeof EnrollRoute
+  ArticlesSlugRoute: typeof ArticlesSlugRoute
+  CampusesSlugRoute: typeof CampusesSlugRoute
+  CoursesSlugRoute: typeof CoursesSlugRoute
+  ArticlesIndexRoute: typeof ArticlesIndexRoute
+  CampusesIndexRoute: typeof CampusesIndexRoute
+  CoursesIndexRoute: typeof CoursesIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +182,91 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/alumni': {
+      id: '/alumni'
+      path: '/alumni'
+      fullPath: '/alumni'
+      preLoaderRoute: typeof AlumniRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/enroll': {
+      id: '/enroll'
+      path: '/enroll'
+      fullPath: '/enroll'
+      preLoaderRoute: typeof EnrollRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/articles/': {
+      id: '/articles/'
+      path: '/articles'
+      fullPath: '/articles/'
+      preLoaderRoute: typeof ArticlesIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/articles/$slug': {
+      id: '/articles/$slug'
+      path: '/articles/$slug'
+      fullPath: '/articles/$slug'
+      preLoaderRoute: typeof ArticlesSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/campuses/': {
+      id: '/campuses/'
+      path: '/campuses'
+      fullPath: '/campuses/'
+      preLoaderRoute: typeof CampusesIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/campuses/$slug': {
+      id: '/campuses/$slug'
+      path: '/campuses/$slug'
+      fullPath: '/campuses/$slug'
+      preLoaderRoute: typeof CampusesSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/courses/': {
+      id: '/courses/'
+      path: '/courses'
+      fullPath: '/courses/'
+      preLoaderRoute: typeof CoursesIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/courses/$slug': {
+      id: '/courses/$slug'
+      path: '/courses/$slug'
+      fullPath: '/courses/$slug'
+      preLoaderRoute: typeof CoursesSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutRoute: AboutRoute,
+  AlumniRoute: AlumniRoute,
+  ContactRoute: ContactRoute,
+  EnrollRoute: EnrollRoute,
+  ArticlesSlugRoute: ArticlesSlugRoute,
+  CampusesSlugRoute: CampusesSlugRoute,
+  CoursesSlugRoute: CoursesSlugRoute,
+  ArticlesIndexRoute: ArticlesIndexRoute,
+  CampusesIndexRoute: CampusesIndexRoute,
+  CoursesIndexRoute: CoursesIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

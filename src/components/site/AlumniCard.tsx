@@ -1,4 +1,4 @@
-import { Award, BookOpen, GraduationCap, Quote } from "lucide-react";
+import { Award, BookOpen, Quote } from "lucide-react";
 import type { Alumnus } from "@/data/people";
 import { PersonAvatar } from "./Avatar";
 import { PlaceholderBadge } from "./Notices";
