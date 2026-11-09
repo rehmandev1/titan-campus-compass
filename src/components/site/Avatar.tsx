@@ -2,7 +2,7 @@ import { UserRound } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 /** Photo if provided, otherwise a neutral brand-coloured placeholder silhouette. */
-export function PersonAvatar({ photo, name, className }: { photo?: string; name: string; className?: string }) {
+export function PersonAvatar({ photo, name, className }: { photo?: string | undefined; name: string; className?: string | undefined }) {
   if (photo) {
     return <img src={photo} alt={name} loading="lazy" className={cn("rounded-full object-cover", className)} />;
   }

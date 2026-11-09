@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { CheckCircle2, Loader2, Send } from "lucide-react";
-import { enrollmentSchema, type EnrollmentInput } from "@/lib/forms";
+import { enrollmentSchema, type EnrollmentInput, type EnrollmentOutput } from "@/lib/forms";
 import { COURSES } from "@/data/courses";
 import { CAMPUSES } from "@/data/campuses";
 import { FormField, fieldCls } from "@/components/site/FormField";
@@ -13,17 +13,17 @@ import { cn } from "@/lib/utils";
 const EDUCATION = ["Matric / O-Level", "Intermediate / A-Level", "Bachelor's", "Master's or above", "Other"];
 
 export function EnrollForm({ defaultCourse, defaultCampus }: { defaultCourse?: string | undefined; defaultCampus?: "sukkur" | "karachi" | undefined }) {
-  const [validated, setValidated] = useState<EnrollmentInput | null>(null);
+  const [validated, setValidated] = useState<EnrollmentOutput | null>(null);
   const {
     register,
     handleSubmit,
     formState: { errors, isSubmitting },
-  } = useForm<EnrollmentInput>({
+  } = useForm<EnrollmentInput, unknown, EnrollmentOutput>({
     resolver: zodResolver(enrollmentSchema),
     mode: "onTouched",
     defaultValues: {
       course: defaultCourse && COURSES.some((c) => c.slug === defaultCourse) ? defaultCourse : "",
-      campus: defaultCampus,
+      ...(defaultCampus ? { campus: defaultCampus } : {}),
       message: "",
     },
   });
@@ -33,7 +33,7 @@ export function EnrollForm({ defaultCourse, defaultCampus }: { defaultCourse?: s
     "aria-describedby": errors[name] ? `${name}-error` : undefined,
   });
 
-  const onSubmit = (data: EnrollmentInput) => {
+  const onSubmit = (data: EnrollmentOutput) => {
     // No enrollment API is connected yet — nothing is sent anywhere.
     setValidated(data);
     window.scrollTo({ top: 0, behavior: "smooth" });

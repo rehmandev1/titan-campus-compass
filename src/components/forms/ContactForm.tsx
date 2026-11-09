@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Loader2, Send } from "lucide-react";
-import { contactSchema, type ContactInput } from "@/lib/forms";
+import { contactSchema, type ContactInput, type ContactOutput } from "@/lib/forms";
 import { FormField, fieldCls } from "@/components/site/FormField";
 import { BackendNotice } from "@/components/site/Notices";
 import { Button } from "@/components/ui/button";
@@ -14,7 +14,7 @@ export function ContactForm() {
     register,
     handleSubmit,
     formState: { errors, isSubmitting },
-  } = useForm<ContactInput>({ resolver: zodResolver(contactSchema), mode: "onTouched" });
+  } = useForm<ContactInput, unknown, ContactOutput>({ resolver: zodResolver(contactSchema), mode: "onTouched" });
 
   const aria = (name: keyof ContactInput) => ({
     "aria-invalid": errors[name] ? true : undefined,

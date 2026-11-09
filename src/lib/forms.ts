@@ -37,6 +37,7 @@ export const enrollmentSchema = z.object({
 });
 
 export type EnrollmentInput = z.input<typeof enrollmentSchema>;
+export type EnrollmentOutput = z.output<typeof enrollmentSchema>;
 
 export const contactSchema = z.object({
   name: z.string().trim().min(2, "Please enter your name").max(100),
@@ -51,3 +52,4 @@ export const contactSchema = z.object({
 });
 
 export type ContactInput = z.input<typeof contactSchema>;
+export type ContactOutput = z.output<typeof contactSchema>;
