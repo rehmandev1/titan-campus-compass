@@ -28,3 +28,11 @@ use the editor.
   own key and store it in Secrets.
 - **Secrets.** Lovable manages them. Do not put secret values in the repo.
 <!-- LOVABLE:END -->
+
+## Project rules
+- All site content (courses, campuses, articles, people, stats, contact) lives in `src/data/*`; components only render it, so verified info can replace placeholders in one place.
+- Placeholder or sample content must stay visibly labelled (`PlaceholderBadge`) until replaced with verified information.
+- The Sindh map outline and marker points come from real boundary data in `src/data/sindh-map.ts` (same projection); markers are % overlays so they stay aligned at any size — never hand-place coordinates.
+- Forms validate with zod schemas in `src/lib/forms.ts`; with no backend connected they must show `BackendNotice` instead of pretending to submit.
+- Colors/gradients are tokens in `src/styles.css` derived only from the logo palette; components use those tokens, never raw color values.
+- The logo is served unmodified from a CDN asset pointer via `LogoImage`/`LogoLink`; on dark backgrounds it sits on a white plate.
