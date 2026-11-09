@@ -8,7 +8,7 @@ import student2 from "@/assets/hero-student-2.jpg";
 import lab from "@/assets/hero-lab.jpg";
 
 const chips = [
-  { Icon: Code2, cls: "left-[4%] top-[46%]", delay: "0s" },
+  { Icon: Code2, cls: "left-[4%] top-[46%] hidden md:grid", delay: "0s" },
   { Icon: Network, cls: "right-[6%] top-[14%] hidden md:grid", delay: "1.2s" },
   { Icon: ShieldCheck, cls: "left-[16%] top-[30%] hidden xl:grid", delay: "2.1s" },
   { Icon: Cpu, cls: "right-[22%] top-[52%] hidden lg:grid", delay: "0.6s" },
@@ -21,7 +21,7 @@ export function Hero() {
       <div className="pointer-events-none absolute inset-0 bg-grid-faint [mask-image:radial-gradient(70%_60%_at_50%_30%,black,transparent)]" aria-hidden />
 
       {/* Decorative educational line art */}
-      <LaptopArt className="pointer-events-none absolute left-[7%] top-10 w-24 animate-float-slow sm:w-32" />
+      <LaptopArt className="pointer-events-none absolute left-[5%] top-10 hidden w-24 animate-float-slow md:block lg:w-32" />
       <PlaneArt className="pointer-events-none absolute right-[8%] top-16 hidden w-52 md:block" />
       <PlaneArt flip className="pointer-events-none absolute left-[6%] top-[38%] hidden w-44 -rotate-12 lg:block" />
       <GlobeArt className="pointer-events-none absolute right-[13%] top-[36%] hidden w-24 animate-float lg:block" />

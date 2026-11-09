@@ -94,8 +94,8 @@ function MobileNav() {
   return (
     <Sheet>
       <SheetTrigger asChild>
-        <Button variant="ghost" size="icon" className="lg:hidden" aria-label="Open menu">
-          <Menu className="size-6" />
+        <Button variant="ghost" size="icon" className="text-navy lg:hidden [&_svg]:size-6" aria-label="Open menu">
+          <Menu />
         </Button>
       </SheetTrigger>
       <SheetContent side="right" className="w-[86vw] max-w-sm overflow-y-auto p-0">
