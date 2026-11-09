@@ -10,7 +10,7 @@ import lab from "@/assets/hero-lab.jpg";
 const chips = [
   { Icon: Code2, cls: "left-[4%] top-[46%]", delay: "0s" },
   { Icon: Network, cls: "right-[6%] top-[14%] hidden md:grid", delay: "1.2s" },
-  { Icon: ShieldCheck, cls: "left-[20%] top-[8%] hidden lg:grid", delay: "2.1s" },
+  { Icon: ShieldCheck, cls: "left-[16%] top-[30%] hidden xl:grid", delay: "2.1s" },
   { Icon: Cpu, cls: "right-[22%] top-[52%] hidden lg:grid", delay: "0.6s" },
   { Icon: Wifi, cls: "right-[3%] top-[62%] hidden sm:grid", delay: "1.8s" },
 ];

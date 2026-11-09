@@ -129,26 +129,27 @@ export function SindhMap({ active, onActiveChange, className }: SindhMapProps) {
               </button>
 
               {/* Floating label — always visible, expands on hover / focus / click */}
-              <div
-                className={cn(
-                  "absolute left-5 -top-11 w-max max-w-[11rem] rounded-xl border border-border bg-card px-3 py-2 text-left shadow-card transition-all duration-300 ease-out sm:left-7 sm:-top-14 sm:max-w-[15rem] sm:px-4 sm:py-2.5",
-                  "group-hover:border-gold group-hover:shadow-gold group-focus-within:border-gold group-focus-within:shadow-gold group-data-[active=true]:border-gold group-data-[active=true]:shadow-gold",
-                )}
-              >
+              <div className="absolute left-5 -top-11 sm:left-7 sm:-top-14">
                 <button
                   type="button"
                   tabIndex={-1}
                   onClick={() => onActiveChange(isActive ? null : c.slug)}
-                  className="block cursor-pointer text-left font-display text-[11px] font-bold leading-tight text-navy sm:text-sm"
+                  className={cn(
+                    "block w-max cursor-pointer rounded-xl border border-border bg-card px-3 py-2 text-left font-display text-[11px] font-bold leading-tight text-navy shadow-card transition-all duration-300 ease-out sm:px-4 sm:py-2.5 sm:text-sm",
+                    "group-hover:-translate-y-0.5 group-hover:border-gold group-hover:shadow-gold group-focus-within:border-gold group-focus-within:shadow-gold group-data-[active=true]:border-gold group-data-[active=true]:shadow-gold",
+                  )}
                 >
                   {c.city}
                   <br />
                   Titan Campus
                 </button>
-                <div className="hidden grid-rows-[0fr] transition-all duration-300 group-hover:grid-rows-[1fr] group-focus-within:grid-rows-[1fr] group-data-[active=true]:grid-rows-[1fr] md:grid">
-                  <div className="overflow-hidden">
-                    <div className="mt-2 border-t border-border pt-2 text-xs text-muted-foreground">
-                      <p className="flex items-start gap-1.5">
+                {/* Expanded info card (md+) */}
+                <div className="invisible absolute left-0 top-full z-10 hidden w-56 translate-y-1 pt-2 opacity-0 transition-all duration-300 ease-out group-hover:visible group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100 group-data-[active=true]:visible group-data-[active=true]:translate-y-0 group-data-[active=true]:opacity-100 md:block">
+                  <div className="overflow-hidden rounded-xl border border-gold bg-card shadow-gold">
+                    <div className="h-1 bg-gradient-gold" aria-hidden />
+                    <div className="p-3.5 text-xs text-muted-foreground">
+                      <p className="font-display text-sm font-bold text-navy">{c.name}</p>
+                      <p className="mt-1.5 flex items-start gap-1.5">
                         <MapPin className="mt-0.5 size-3.5 shrink-0 text-gold-deep" aria-hidden />
                         <span>
                           {c.city}, Sindh
@@ -159,7 +160,7 @@ export function SindhMap({ active, onActiveChange, className }: SindhMapProps) {
                       <Link
                         to="/campuses/$slug"
                         params={{ slug: c.slug }}
-                        className="mt-2.5 inline-flex items-center gap-1 rounded-full bg-gradient-navy px-3 py-1.5 text-[11px] font-semibold text-on-navy transition-transform hover:-translate-y-0.5"
+                        className="mt-3 inline-flex items-center gap-1 rounded-full bg-gradient-navy px-3 py-1.5 text-[11px] font-semibold text-on-navy transition-transform hover:-translate-y-0.5"
                       >
                         View Details <ArrowRight className="size-3" aria-hidden />
                       </Link>
