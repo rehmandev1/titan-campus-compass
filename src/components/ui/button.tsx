@@ -5,7 +5,7 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium cursor-pointer transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 disabled:cursor-not-allowed [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
+  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-semibold cursor-pointer transition-all duration-300 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:pointer-events-none disabled:opacity-50 disabled:cursor-not-allowed [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
   {
     variants: {
       variant: {
@@ -16,12 +16,21 @@ const buttonVariants = cva(
         secondary: "bg-secondary text-secondary-foreground shadow-sm hover:bg-secondary/80",
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
+        /* TITAN brand variants */
+        gold: "bg-gradient-gold bg-[length:160%_100%] bg-left text-navy-deep shadow-gold hover:bg-right hover:-translate-y-0.5 hover:shadow-lift active:translate-y-0",
+        navy: "bg-gradient-navy bg-[length:160%_100%] bg-left text-on-navy shadow-card hover:bg-right hover:-translate-y-0.5 hover:shadow-lift active:translate-y-0",
+        "outline-brand":
+          "border-2 border-navy/80 bg-transparent text-navy hover:border-gold hover:bg-gold-tint hover:-translate-y-0.5 hover:shadow-soft active:translate-y-0",
+        "outline-light":
+          "border border-on-navy/40 bg-on-navy/5 text-on-navy backdrop-blur hover:border-gold hover:bg-on-navy/10 hover:-translate-y-0.5",
+        soft: "bg-gold-tint text-navy hover:bg-gold-light/60",
       },
       size: {
-        default: "h-9 px-4 py-2",
-        sm: "h-8 rounded-md px-3 text-xs",
-        lg: "h-10 rounded-md px-8",
-        icon: "h-9 w-9",
+        default: "h-10 px-5 py-2",
+        sm: "h-9 rounded-md px-3.5 text-xs",
+        lg: "h-12 rounded-full px-7 text-sm tracking-wide",
+        xl: "h-14 rounded-full px-9 text-base tracking-wide",
+        icon: "h-10 w-10",
       },
     },
     defaultVariants: {
