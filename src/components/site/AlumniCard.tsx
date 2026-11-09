@@ -30,9 +30,6 @@ export function AlumniCard({ person }: { person: Alumnus }) {
           {person.quote}
         </blockquote>
       </div>
-      <span className="sr-only">
-        <GraduationCap /> Alumni profile
-      </span>
     </article>
   );
 }
